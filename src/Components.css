@@ -1,0 +1,66 @@
+.info {
+    display: grid;
+}
+
+#fname {
+    margin: auto;
+    height: 100%;
+    font-size: 32px;
+    text-align: center;
+}
+
+#lname {
+    margin: auto;
+    font-size: 24px;
+    height: 75%;
+    text-align: center;
+}
+
+#dob {
+    margin: auto;
+    height: 50%;
+    font-size: 16px;
+    text-align: center;
+}
+
+
+.education, .experience {
+    display: grid;
+    height: 300px;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: repeat(10, 10%);
+}
+
+#school, #company {
+    font-size: 24px;
+}
+
+#graduationType, #position {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+
+}
+
+.dateStarted {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+.dateEnded {
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+.description {
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 10;
+    text-align: top;
+}

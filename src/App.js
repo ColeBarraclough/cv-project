@@ -4,7 +4,6 @@ import Education from "./Education.js"
 import Experience from "./Experience";
 import Info from "./Info";
 
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +24,6 @@ class App extends Component {
     this.submit = this.submit.bind(this);
     this.addEducation = this.addEducation.bind(this);
     this.addExperience = this.addExperience.bind(this);
-
   }
 
 
@@ -40,7 +38,7 @@ class App extends Component {
     this.setState({addEducation: true,});
     this.educationRefList.push(React.createRef());
     this.educationElements = this.educationRefList.map((tempRef, index) => 
-      <Education key={index} ref={this.educationRefList[index]}/>
+      <Education className='education' key={index} ref={this.educationRefList[index]}/>
     );
   }
 
@@ -48,32 +46,34 @@ class App extends Component {
     this.setState({addExperience: true,});
     this.experienceRefList.push(React.createRef());
     this.experienceElements = this.experienceRefList.map((tempRef, index) => 
-      <Experience key={index} ref={this.experienceRefList[index]}/>
+      <Experience className='experience' key={index} ref={this.experienceRefList[index]}/>
     );
   }
 
 
   render() {
     return (
-      <div>
-
+      <div id="app">
+        <h1>Resume Builder</h1>
         <form>
-          <Info ref={this.infoElements[0]}/>
-          <button type="button" onClick={() => this.submit(this.infoElements, true)} id="submitInfo">Submit</button>
-          <button type="button" onClick={() => this.submit(this.infoElements, false)} id="editInfo">Edit</button>
+          <Info className='info' ref={this.infoElements[0]}/>
+          <button  className='submit' type="button" onClick={() => this.submit(this.infoElements, true)} id="submitInfo">Submit</button>
+          <button className='edit' type="button" onClick={() => this.submit(this.infoElements, false)} id="editInfo">Edit</button>
         </form>
         <form>
-          <button type="button" onClick={() => this.submit(this.educationRefList, true)} id="submitEducation">Submit</button> 
-          <button type="button" onClick={this.addEducation} id="addEducation">Add</button>
-          <button type="button" onClick={() => this.submit(this.educationRefList, false)} id="editEducation">Edit</button>
+          <h2>Education</h2>
+          <button className='submit' type="button" onClick={() => this.submit(this.educationRefList, true)} id="submitEducation">Submit</button> 
+          <button className='add' type="button" onClick={this.addEducation} id="addEducation">Add</button>
+          <button className='edit' type="button" onClick={() => this.submit(this.educationRefList, false)} id="editEducatthis.educationRefListion">Edit</button>
             <ul>
               {this.educationElements}
             </ul>
         </form>
         <form>
-          <button type="button" onClick={() => this.submit(this.experienceRefList, true)} id="submitExperience">Submit</button>
-          <button type="button" onClick={this.addExperience} id="addExperience">Add</button>
-          <button type="button" onClick={() => this.submit(this.experienceRefList, false)} id="editExperience">Edit</button>
+          <h2>Experience</h2>
+          <button className='submit' type="button" onClick={() => this.submit(this.experienceRefList, true)} id="submitExperience">Submit</button>
+          <button className='add' type="button" onClick={this.addExperience} id="addExperience">Add</button>
+          <button className='edit' type="button" onClick={() => this.submit(this.experienceRefList, false)} id="editExperience">Edit</button>
             <ul>
               {this.experienceElements}
             </ul>
